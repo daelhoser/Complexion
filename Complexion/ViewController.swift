@@ -24,12 +24,33 @@ final class RootCoordinator: Coordinator {
     }
     
     func start() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let loadViewController = sb.instantiateViewController(withIdentifier: "LoadingViewController") as! LoadingViewController
+        let service = LoadUserProfileService()
+        
+        loadViewController.load {
+            service.get { [weak self] result in
+                switch result {
+                case let .success(_):
+                    self?.dismiss()
+                case .failure:
+                    self?.dismiss()
+                }
+            }
+        }
+        
+        navigationController.setViewControllers([loadViewController], animated: true)
     }
     
-    
+    private func dismiss() {
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController.dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
 class ViewController: UIViewController {
+    var coordinator: Coordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,5 +58,12 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction private func unlockButtonTapped() {
+        let navController = UINavigationController()
+        coordinator = RootCoordinator(navigationController: navController)
+        
+        coordinator?.start()
+        navigationController?.present(navController, animated: true, completion: nil)
+    }
 }
 
