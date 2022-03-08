@@ -76,9 +76,9 @@
 		5F5F498D27D5829700630E36 /* Complexion */ = {
 			isa = PBXGroup;
 			children = (
-				5F5F49B527D7CFC000630E36 /* Domain */,
-				5F5F49AE27D7C37E00630E36 /* Coordinators */,
 				5F5F49A527D69A9800630E36 /* API */,
+				5F5F49AE27D7C37E00630E36 /* Coordinators */,
+				5F5F49B527D7CFC000630E36 /* Domain */,
 				5F5F498E27D5829700630E36 /* AppDelegate.swift */,
 				5F5F499027D5829700630E36 /* SceneDelegate.swift */,
 				5F5F499227D5829700630E36 /* ViewController.swift */,
