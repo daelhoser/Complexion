@@ -73,6 +73,46 @@
             </objects>
             <point key="canvasLocation" x="-28.985507246376812" y="132.58928571428572"/>
         </scene>
+        <!--Complete User Profile-->
+        <scene sceneID="sQz-cI-0Rd">
+            <objects>
+                <viewController storyboardIdentifier="CompleteUserProfileViewController" title="Complete User Profile" id="A3V-Wb-K8u" customClass="CompleteUserProfileViewController" customModule="Complexion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iTv-O4-W7Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Complete User Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkF-0o-qAq">
+                                <rect key="frame" x="124" y="159" width="167" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGj-PI-V0x">
+                                <rect key="frame" x="127" y="282" width="161" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Complete with Success"/>
+                                <connections>
+                                    <action selector="completeWithSuccessButtonTapped" destination="A3V-Wb-K8u" eventType="touchUpInside" id="ljK-It-tZr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCe-nm-OKh">
+                                <rect key="frame" x="132" y="356" width="151" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Complete With Failure"/>
+                                <connections>
+                                    <action selector="completeWithFailureButtonTapped" destination="A3V-Wb-K8u" eventType="touchUpInside" id="2pm-be-F1n"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oFV-Ej-Tag"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H6z-k8-Vbr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-29" y="828"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

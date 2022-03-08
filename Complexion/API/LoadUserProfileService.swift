@@ -10,7 +10,7 @@ import Foundation
 struct UserProfile {
     let firstName: String
     let lastName: String
-    let contactId: String?
+    var contactId: String?
     let locationId: Int
     
     func hasCompletedUserProfile() -> Bool {
@@ -39,11 +39,12 @@ final class LoadUserProfileService : UserProfileProtocol {
     
     func get(completion: @escaping (UserProfileProtocol.Result) -> Void) -> RequestTaskProtocol {
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
-            let restrictedFromContinuing = true
-            let locationId = restrictedFromContinuing ? 123 : 456
-            
-            let hasCompletedUserProfile = true
+        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+            let restrictedFromContinuing = false
+            let hasCompletedUserProfile = false
+
+
+            let locationId = restrictedFromContinuing ? 123 : 456            
             let contactId: String? = hasCompletedUserProfile ? "1" : nil
             let user = UserProfile(firstName: "Jose", lastName: "Alvarez", contactId: contactId, locationId: locationId)
             

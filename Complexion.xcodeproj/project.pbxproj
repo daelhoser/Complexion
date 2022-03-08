@@ -17,6 +17,7 @@
 		5F5F49A727D69AA700630E36 /* RequestTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49A627D69AA700630E36 /* RequestTaskProtocol.swift */; };
 		5F5F49A927D69B6400630E36 /* LoadUserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49A827D69B6400630E36 /* LoadUserProfileService.swift */; };
 		5F5F49AB27D6B51400630E36 /* MainQueueDispatcherDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49AA27D6B51400630E36 /* MainQueueDispatcherDecorator.swift */; };
+		5F5F49AD27D6DEB100630E36 /* CompleteUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49AC27D6DEB100630E36 /* CompleteUserProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5F5F49A627D69AA700630E36 /* RequestTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTaskProtocol.swift; sourceTree = "<group>"; };
 		5F5F49A827D69B6400630E36 /* LoadUserProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUserProfileService.swift; sourceTree = "<group>"; };
 		5F5F49AA27D6B51400630E36 /* MainQueueDispatcherDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatcherDecorator.swift; sourceTree = "<group>"; };
+		5F5F49AC27D6DEB100630E36 /* CompleteUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteUserProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				5F5F498E27D5829700630E36 /* AppDelegate.swift */,
 				5F5F499027D5829700630E36 /* SceneDelegate.swift */,
 				5F5F499227D5829700630E36 /* ViewController.swift */,
+				5F5F49AC27D6DEB100630E36 /* CompleteUserProfileViewController.swift */,
 				5F5F499427D5829700630E36 /* Main.storyboard */,
 				5F5F499727D5829900630E36 /* Assets.xcassets */,
 				5F5F499927D5829900630E36 /* LaunchScreen.storyboard */,
@@ -159,6 +162,7 @@
 			files = (
 				5F5F49A727D69AA700630E36 /* RequestTaskProtocol.swift in Sources */,
 				5F5F499327D5829700630E36 /* ViewController.swift in Sources */,
+				5F5F49AD27D6DEB100630E36 /* CompleteUserProfileViewController.swift in Sources */,
 				5F5F49A927D69B6400630E36 /* LoadUserProfileService.swift in Sources */,
 				5F5F498F27D5829700630E36 /* AppDelegate.swift in Sources */,
 				5F5F49AB27D6B51400630E36 /* MainQueueDispatcherDecorator.swift in Sources */,

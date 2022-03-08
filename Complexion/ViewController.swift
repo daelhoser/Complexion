@@ -16,6 +16,7 @@ protocol Coordinator: AnyObject {
 
 final class RootCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = [Coordinator]()
+    private var user: UserProfile?
     
     var navigationController: UINavigationController
     
@@ -30,12 +31,16 @@ final class RootCoordinator: Coordinator {
         
         loadViewController.load {
             service.get { [weak self] result in
+                // Warning: Depending on result we need to update UI on main thread or Call another service on any thread
+                
                 switch result {
                 case let .success(user):
+                    self?.user = user
+                    
                     if !user.isAllowedToViewLockedContent() {
                         self?.alertUserNotAllowedToViewContent()
                     } else if !user.hasCompletedUserProfile() {
-                        
+                        self?.requestUserToCompleteProfile(with: user)
                     }
                 case .failure:
                     self?.dismiss()
@@ -57,6 +62,7 @@ final class RootCoordinator: Coordinator {
             DispatchQueue.main.async {
                 self.alertUserNotAllowedToViewContent()
             }
+            return
         }
         
         let alert = UIAlertController(title: "Not Allowed", message: "You are not allowed to view content", preferredStyle: .alert)
@@ -66,6 +72,37 @@ final class RootCoordinator: Coordinator {
         
         alert.addAction(action)
         navigationController.present(alert, animated: true, completion: nil)
+    }
+}
+
+/// Complete your profile flow
+extension RootCoordinator : CompleteProfileFlowDelegate {
+    private func requestUserToCompleteProfile(with user: UserProfile) {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.requestUserToCompleteProfile(with: user)
+            }
+            return
+        }
+        let vc = CompleteUserProfileComposer.compose(with: user)
+        vc.flowDelegate = self
+        
+        navigationController.setViewControllers([vc], animated: true)
+    }
+    
+    func completeProfileSucceeded(with contactId: Int) {
+        user?.contactId = contactId
+        dismiss()
+    }
+    
+    func completeYourProfileFailed() {
+        dismiss()
+    }
+}
+
+extension RootCoordinator {
+    private func confirmEmailAndPhone() {
+        
     }
 }
 
