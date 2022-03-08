@@ -23,6 +23,9 @@
 		5F5F49B427D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B327D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift */; };
 		5F5F49B827D7CFE400630E36 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B727D7CFE400630E36 /* UserProfile.swift */; };
 		5F5F49BA27D7D0A100630E36 /* UserProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B927D7D0A100630E36 /* UserProfileProtocol.swift */; };
+		5F5F49BD27D7D10E00630E36 /* AccessLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49BC27D7D10E00630E36 /* AccessLevel.swift */; };
+		5F5F49BF27D7D1DB00630E36 /* UserAccessLevelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49BE27D7D1DB00630E36 /* UserAccessLevelProtocol.swift */; };
+		5F5F49C327D7D28A00630E36 /* UserAccessLevelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49C227D7D28A00630E36 /* UserAccessLevelService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		5F5F49B327D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailAndPhoneViewController.swift; sourceTree = "<group>"; };
 		5F5F49B727D7CFE400630E36 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		5F5F49B927D7D0A100630E36 /* UserProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileProtocol.swift; sourceTree = "<group>"; };
+		5F5F49BC27D7D10E00630E36 /* AccessLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessLevel.swift; sourceTree = "<group>"; };
+		5F5F49BE27D7D1DB00630E36 /* UserAccessLevelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccessLevelProtocol.swift; sourceTree = "<group>"; };
+		5F5F49C227D7D28A00630E36 /* UserAccessLevelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccessLevelService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +103,9 @@
 		5F5F49A527D69A9800630E36 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				5F5F49C127D7D27900630E36 /* User Access Level */,
+				5F5F49C027D7D26C00630E36 /* User Profile */,
 				5F5F49A627D69AA700630E36 /* RequestTaskProtocol.swift */,
-				5F5F49A827D69B6400630E36 /* LoadUserProfileService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -115,6 +122,8 @@
 		5F5F49B527D7CFC000630E36 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				5F5F49BC27D7D10E00630E36 /* AccessLevel.swift */,
+				5F5F49BB27D7D0F600630E36 /* User Access Level */,
 				5F5F49B627D7CFD900630E36 /* User Profile */,
 			);
 			path = Domain;
@@ -127,6 +136,30 @@
 				5F5F49B927D7D0A100630E36 /* UserProfileProtocol.swift */,
 			);
 			path = "User Profile";
+			sourceTree = "<group>";
+		};
+		5F5F49BB27D7D0F600630E36 /* User Access Level */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49BE27D7D1DB00630E36 /* UserAccessLevelProtocol.swift */,
+			);
+			path = "User Access Level";
+			sourceTree = "<group>";
+		};
+		5F5F49C027D7D26C00630E36 /* User Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49A827D69B6400630E36 /* LoadUserProfileService.swift */,
+			);
+			path = "User Profile";
+			sourceTree = "<group>";
+		};
+		5F5F49C127D7D27900630E36 /* User Access Level */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49C227D7D28A00630E36 /* UserAccessLevelService.swift */,
+			);
+			path = "User Access Level";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +233,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F5F49A727D69AA700630E36 /* RequestTaskProtocol.swift in Sources */,
+				5F5F49C327D7D28A00630E36 /* UserAccessLevelService.swift in Sources */,
+				5F5F49BF27D7D1DB00630E36 /* UserAccessLevelProtocol.swift in Sources */,
 				5F5F499327D5829700630E36 /* ViewController.swift in Sources */,
 				5F5F49AD27D6DEB100630E36 /* CompleteUserProfileViewController.swift in Sources */,
 				5F5F49BA27D7D0A100630E36 /* UserProfileProtocol.swift in Sources */,
@@ -207,6 +242,7 @@
 				5F5F49B427D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift in Sources */,
 				5F5F498F27D5829700630E36 /* AppDelegate.swift in Sources */,
 				5F5F49AB27D6B51400630E36 /* MainQueueDispatcherDecorator.swift in Sources */,
+				5F5F49BD27D7D10E00630E36 /* AccessLevel.swift in Sources */,
 				5F5F499127D5829700630E36 /* SceneDelegate.swift in Sources */,
 				5F5F49B827D7CFE400630E36 /* UserProfile.swift in Sources */,
 				5F5F49B227D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift in Sources */,

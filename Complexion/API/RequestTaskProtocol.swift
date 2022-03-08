@@ -10,3 +10,9 @@ import Foundation
 public protocol RequestTaskProtocol {
     func cancel()
 }
+
+
+struct RequestTask: RequestTaskProtocol {
+    func cancel() {
+    }
+}

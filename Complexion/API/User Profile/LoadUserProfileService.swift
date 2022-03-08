@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct RequestTask: RequestTaskProtocol {
-    func cancel() {
-    }
-}
-
 final class LoadUserProfileService : UserProfileProtocol {
     
     func get(completion: @escaping (UserProfileProtocol.Result) -> Void) -> RequestTaskProtocol {
