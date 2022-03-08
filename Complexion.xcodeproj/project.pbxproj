@@ -19,6 +19,8 @@
 		5F5F49AB27D6B51400630E36 /* MainQueueDispatcherDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49AA27D6B51400630E36 /* MainQueueDispatcherDecorator.swift */; };
 		5F5F49AD27D6DEB100630E36 /* CompleteUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49AC27D6DEB100630E36 /* CompleteUserProfileViewController.swift */; };
 		5F5F49B027D7C39100630E36 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49AF27D7C39100630E36 /* RootCoordinator.swift */; };
+		5F5F49B227D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B127D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift */; };
+		5F5F49B427D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B327D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		5F5F49AA27D6B51400630E36 /* MainQueueDispatcherDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatcherDecorator.swift; sourceTree = "<group>"; };
 		5F5F49AC27D6DEB100630E36 /* CompleteUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteUserProfileViewController.swift; sourceTree = "<group>"; };
 		5F5F49AF27D7C39100630E36 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		5F5F49B127D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailAndPhoneFlowCoordinator.swift; sourceTree = "<group>"; };
+		5F5F49B327D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailAndPhoneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 				5F5F499027D5829700630E36 /* SceneDelegate.swift */,
 				5F5F499227D5829700630E36 /* ViewController.swift */,
 				5F5F49AC27D6DEB100630E36 /* CompleteUserProfileViewController.swift */,
+				5F5F49B327D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift */,
 				5F5F499427D5829700630E36 /* Main.storyboard */,
 				5F5F499727D5829900630E36 /* Assets.xcassets */,
 				5F5F499927D5829900630E36 /* LaunchScreen.storyboard */,
@@ -97,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				5F5F49AF27D7C39100630E36 /* RootCoordinator.swift */,
+				5F5F49B127D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -175,9 +181,11 @@
 				5F5F499327D5829700630E36 /* ViewController.swift in Sources */,
 				5F5F49AD27D6DEB100630E36 /* CompleteUserProfileViewController.swift in Sources */,
 				5F5F49A927D69B6400630E36 /* LoadUserProfileService.swift in Sources */,
+				5F5F49B427D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift in Sources */,
 				5F5F498F27D5829700630E36 /* AppDelegate.swift in Sources */,
 				5F5F49AB27D6B51400630E36 /* MainQueueDispatcherDecorator.swift in Sources */,
 				5F5F499127D5829700630E36 /* SceneDelegate.swift in Sources */,
+				5F5F49B227D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift in Sources */,
 				5F5F49B027D7C39100630E36 /* RootCoordinator.swift in Sources */,
 				5F5F49A427D69A8600630E36 /* LoadingViewController.swift in Sources */,
 			);

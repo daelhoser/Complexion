@@ -26,8 +26,7 @@ final class RootCoordinator: Coordinator {
     }
     
     func start() {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let loadViewController = sb.instantiateViewController(withIdentifier: "LoadingViewController") as! LoadingViewController
+        let loadViewController = createLoadingViewController()
         let service = LoadUserProfileService()
         
         loadViewController.load {
@@ -74,6 +73,12 @@ final class RootCoordinator: Coordinator {
         alert.addAction(action)
         navigationController.present(alert, animated: true, completion: nil)
     }
+    
+    private func createLoadingViewController() -> LoadingViewController {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        return sb.instantiateViewController(withIdentifier: "LoadingViewController") as! LoadingViewController
+    }
 }
 
 /// Complete your profile flow
@@ -102,8 +107,45 @@ extension RootCoordinator : CompleteProfileFlowDelegate {
     }
 }
 
-extension RootCoordinator {
+extension RootCoordinator : EmailAndPhoneVerificationStatusDelegate {
     private func confirmEmailAndPhone() {
+        let childCoordinator = VerifyEmailAndPhoneFlowCoordinator(navigationController: navigationController)
+        childCoordinator.completionDelegate = self
         
+        childCoordinators.append(childCoordinator)
+        childCoordinator.start()
+    }
+    
+    func completedSuccessfully() {
+        removeVerificationCoordinator()
+
+        getUserAccessLevel()
+    }
+    
+    func cancelled() {
+        removeVerificationCoordinator()
+        navigationController.dismiss(animated: true, completion: nil)
+    }
+    
+    func failed() {
+        removeVerificationCoordinator()
+        navigationController.dismiss(animated: true, completion: nil)
+    }
+    
+    private func removeVerificationCoordinator() {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator is VerifyEmailAndPhoneFlowCoordinator {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
+    }
+}
+
+extension RootCoordinator {
+    private func getUserAccessLevel() {
+        let loadingViewController = createLoadingViewController()
+        navigationController.setViewControllers([loadingViewController], animated: true)
+
     }
 }
