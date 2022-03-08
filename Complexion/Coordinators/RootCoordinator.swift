@@ -18,14 +18,14 @@ protocol Coordinator: AnyObject {
 final class RootCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = [Coordinator]()
     private var user: UserProfile?
-    private let listingAccessLevel: AccessLevel
+    private let itemAccessLevel: AccessLevel
     var navigationController: UINavigationController
     
     var onCompletion: (() -> Void)?
 
     init(navigationController: UINavigationController, listingAccessLevel: AccessLevel) {
         self.navigationController = navigationController
-        self.listingAccessLevel = listingAccessLevel
+        self.itemAccessLevel = listingAccessLevel
     }
     
     func start() {
@@ -74,7 +74,9 @@ final class RootCoordinator: Coordinator {
     
     private func dismiss() {
         DispatchQueue.main.async { [weak self] in
-            self?.navigationController.dismiss(animated: true, completion: nil)
+            self?.navigationController.dismiss(animated: true, completion: {
+                self?.onCompletion?()
+            })
         }
     }
     
@@ -178,12 +180,12 @@ extension RootCoordinator {
                 case let .success(userAccessLevel):
                     self.user?.accessLevel = userAccessLevel
                     
-                    if userAccessLevel == .twenty && self.listingAccessLevel == .thirty {
+                    if userAccessLevel == .twenty && self.itemAccessLevel == .thirty {
                         self.renderWaitingForApproval()
-                    } else if userAccessLevel >= self.listingAccessLevel {
+                    } else if userAccessLevel >= self.itemAccessLevel {
                         self.closeAndComplete()
                     } else {
-                        self.getBypassStatus(with: loadingViewController)
+                        self.getCompanyBypassStatus(with: loadingViewController)
                     }
                 case .failure:
                     self.requestFailed(for: loadingViewController)
@@ -192,28 +194,124 @@ extension RootCoordinator {
         }
     }
     
-    private func renderWaitingForApproval() {
-        
+    private func getCompanyBypassStatus(with vc: LoadingViewController) {
+        let getTransService =  CanBypassForItemService()
+
+        vc.load {
+            return getTransService.load(itemId: "same item id") { [weak self] result in
+                guard let self = self else { return }
+
+                switch result {
+                case let .success(canBypass):
+                    if canBypass {
+                        self.logUserBypassedCompanyChecks(for: vc)
+                    } else {
+                        self.checkIfUserHasPassedThirdPartyRequirements(for: vc)
+                    }
+                case .failure:
+                    self.requestFailed(for: vc)
+                }
+            }
+        }
     }
     
-    private func getBypassStatus(with vc: LoadingViewController) {
-//        let getTransService =  CanBypassTransUnionForListingService()
-//
-//        vc.load {
-//            return getTransService.load(listingId: model.listingId) { [weak self] result in
-//                guard let self = self else { return }
-//
-//                switch result {
-//                case let .success(response):
-//                    if response.isVerified {
-//                        self.logTransUnionUserVerified(for: vc)
-//                    } else {
-//                        self.checkIfUserHasCompletedTransUnion(for: vc)
-//                    }
-//                case .failure:
-//                    self.requestFailed(for: vc)
-//                }
-//            }
-//        }
+    private func logUserBypassedCompanyChecks(for vc: LoadingViewController) {
+        func determineNextSteps() {
+            if user?.accessLevel == AccessLevel.none {
+                self.setUserAccessLevelToTen(for: vc)
+            } else {
+                if self.itemAccessLevel <= .ten {
+                    self.closeAndComplete()
+                } else {
+                    self.requestUserAcceptance()
+                }
+            }
+        }
+
+        guard let contactId = user?.contactId else {
+            return
+        }
+        
+        let service = LogUserBypassCheckService()
+        
+        vc.load {
+            return service.load(contactId: contactId) { [weak self] result in
+                switch result {
+                case .success:
+                    determineNextSteps()
+                case .failure:
+                    self?.requestFailed(for: vc)
+                }
+            }
+        }
+    }
+    
+    private func checkIfUserHasPassedThirdPartyRequirements(for vc: LoadingViewController) {
+        let service = ThirdPartyCompletionStatusService()
+
+        vc.load {
+            return service.load { [weak self] result in
+                guard let self = self else { return }
+
+                switch result {
+                case .success(let response):
+                    if response.isVerified {
+                        if self.user?.accessLevel == AccessLevel.none {
+                            self.setUserAccessLevelToTen(for: vc)
+                        } else {
+                            self.requestUserAcceptance()
+                        }
+                    } else {
+                        self.renderThirdPartyAcceptanceCheck()
+                    }
+                    break
+                case .failure:
+                    self.requestFailed(for: vc)
+                }
+            }
+        }
+    }
+    
+    private func renderThirdPartyAcceptanceCheck() {
+        
+    }
+        
+    private func setUserAccessLevelToTen(for vc: LoadingViewController) {
+        let service = SetUserAccessLevelToTenService()
+
+        vc.load {
+            return service.set(for: "same item id") { [weak self] result in
+                guard let self = self else { return }
+
+                switch result {
+                case .success:
+                    if self.itemAccessLevel <= .ten {
+                        self.closeAndComplete()
+                    } else {
+                        self.requestUserAcceptance()
+                    }
+                case .failure:
+                    self.requestFailed(for: vc)
+                }
+            }
+        }
+    }
+    
+    private func requestUserAcceptance() {
+        
+    }
+}
+
+extension RootCoordinator: WaitingForApprovalFlowDelegate {
+    private func renderWaitingForApproval() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "WaitingForApprovalViewController") as! WaitingForApprovalViewController
+        vc.delegate = self
+        
+        navigationController.setViewControllers([vc], animated: true)
+    }
+    
+    func okTapped() {
+        dismiss()
     }
 }

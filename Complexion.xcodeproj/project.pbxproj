@@ -26,6 +26,15 @@
 		5F5F49BD27D7D10E00630E36 /* AccessLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49BC27D7D10E00630E36 /* AccessLevel.swift */; };
 		5F5F49BF27D7D1DB00630E36 /* UserAccessLevelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49BE27D7D1DB00630E36 /* UserAccessLevelProtocol.swift */; };
 		5F5F49C327D7D28A00630E36 /* UserAccessLevelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49C227D7D28A00630E36 /* UserAccessLevelService.swift */; };
+		5F5F49C527D7DB9200630E36 /* WaitingForApprovalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49C427D7DB9200630E36 /* WaitingForApprovalViewController.swift */; };
+		5F5F49C827D7DDEF00630E36 /* CanBypassForItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49C727D7DDEF00630E36 /* CanBypassForItemProtocol.swift */; };
+		5F5F49CB27D7DE9F00630E36 /* CanBypassForItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49CA27D7DE9F00630E36 /* CanBypassForItemService.swift */; };
+		5F5F49CE27D7E3CD00630E36 /* LogUserBypassCheckProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49CD27D7E3CD00630E36 /* LogUserBypassCheckProtocol.swift */; };
+		5F5F49D127D7E44400630E36 /* LogUserBypassCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49D027D7E44400630E36 /* LogUserBypassCheckService.swift */; };
+		5F5F49D627D7E81E00630E36 /* ThirdPartyCompletionStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49D527D7E81E00630E36 /* ThirdPartyCompletionStatusProtocol.swift */; };
+		5F5F49DA27D7E8AD00630E36 /* ThirdPartyCompletionStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49D927D7E8AD00630E36 /* ThirdPartyCompletionStatusService.swift */; };
+		5F5F49DC27D7EB4A00630E36 /* SetUserAccessLevelToTenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49DB27D7EB4A00630E36 /* SetUserAccessLevelToTenProtocol.swift */; };
+		5F5F49DE27D7EBA500630E36 /* SetUserAccessLevelToTenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49DD27D7EBA500630E36 /* SetUserAccessLevelToTenService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +59,15 @@
 		5F5F49BC27D7D10E00630E36 /* AccessLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessLevel.swift; sourceTree = "<group>"; };
 		5F5F49BE27D7D1DB00630E36 /* UserAccessLevelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccessLevelProtocol.swift; sourceTree = "<group>"; };
 		5F5F49C227D7D28A00630E36 /* UserAccessLevelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccessLevelService.swift; sourceTree = "<group>"; };
+		5F5F49C427D7DB9200630E36 /* WaitingForApprovalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingForApprovalViewController.swift; sourceTree = "<group>"; };
+		5F5F49C727D7DDEF00630E36 /* CanBypassForItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanBypassForItemProtocol.swift; sourceTree = "<group>"; };
+		5F5F49CA27D7DE9F00630E36 /* CanBypassForItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanBypassForItemService.swift; sourceTree = "<group>"; };
+		5F5F49CD27D7E3CD00630E36 /* LogUserBypassCheckProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUserBypassCheckProtocol.swift; sourceTree = "<group>"; };
+		5F5F49D027D7E44400630E36 /* LogUserBypassCheckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUserBypassCheckService.swift; sourceTree = "<group>"; };
+		5F5F49D527D7E81E00630E36 /* ThirdPartyCompletionStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyCompletionStatusProtocol.swift; sourceTree = "<group>"; };
+		5F5F49D927D7E8AD00630E36 /* ThirdPartyCompletionStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyCompletionStatusService.swift; sourceTree = "<group>"; };
+		5F5F49DB27D7EB4A00630E36 /* SetUserAccessLevelToTenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserAccessLevelToTenProtocol.swift; sourceTree = "<group>"; };
+		5F5F49DD27D7EBA500630E36 /* SetUserAccessLevelToTenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserAccessLevelToTenService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +108,7 @@
 				5F5F499227D5829700630E36 /* ViewController.swift */,
 				5F5F49AC27D6DEB100630E36 /* CompleteUserProfileViewController.swift */,
 				5F5F49B327D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift */,
+				5F5F49C427D7DB9200630E36 /* WaitingForApprovalViewController.swift */,
 				5F5F499427D5829700630E36 /* Main.storyboard */,
 				5F5F499727D5829900630E36 /* Assets.xcassets */,
 				5F5F499927D5829900630E36 /* LaunchScreen.storyboard */,
@@ -103,6 +122,9 @@
 		5F5F49A527D69A9800630E36 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				5F5F49D727D7E89300630E36 /* Third Party Requirements */,
+				5F5F49CF27D7E43600630E36 /* Log user bypass check */,
+				5F5F49C627D7DDD900630E36 /* Can bypass further checks */,
 				5F5F49C127D7D27900630E36 /* User Access Level */,
 				5F5F49C027D7D26C00630E36 /* User Profile */,
 				5F5F49A627D69AA700630E36 /* RequestTaskProtocol.swift */,
@@ -122,6 +144,8 @@
 		5F5F49B527D7CFC000630E36 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				5F5F49D327D7E7E600630E36 /* Thirdparty Requirements */,
+				5F5F49D227D7E6F900630E36 /* Bypass Business Requirements */,
 				5F5F49BC27D7D10E00630E36 /* AccessLevel.swift */,
 				5F5F49BB27D7D0F600630E36 /* User Access Level */,
 				5F5F49B627D7CFD900630E36 /* User Profile */,
@@ -142,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				5F5F49BE27D7D1DB00630E36 /* UserAccessLevelProtocol.swift */,
+				5F5F49DB27D7EB4A00630E36 /* SetUserAccessLevelToTenProtocol.swift */,
 			);
 			path = "User Access Level";
 			sourceTree = "<group>";
@@ -158,8 +183,82 @@
 			isa = PBXGroup;
 			children = (
 				5F5F49C227D7D28A00630E36 /* UserAccessLevelService.swift */,
+				5F5F49DD27D7EBA500630E36 /* SetUserAccessLevelToTenService.swift */,
 			);
 			path = "User Access Level";
+			sourceTree = "<group>";
+		};
+		5F5F49C627D7DDD900630E36 /* Can bypass further checks */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49CA27D7DE9F00630E36 /* CanBypassForItemService.swift */,
+			);
+			path = "Can bypass further checks";
+			sourceTree = "<group>";
+		};
+		5F5F49C927D7DE7500630E36 /* can bypass further checks */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49C727D7DDEF00630E36 /* CanBypassForItemProtocol.swift */,
+			);
+			path = "can bypass further checks";
+			sourceTree = "<group>";
+		};
+		5F5F49CC27D7E3B200630E36 /* Log user bypass check */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49CD27D7E3CD00630E36 /* LogUserBypassCheckProtocol.swift */,
+			);
+			path = "Log user bypass check";
+			sourceTree = "<group>";
+		};
+		5F5F49CF27D7E43600630E36 /* Log user bypass check */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49D027D7E44400630E36 /* LogUserBypassCheckService.swift */,
+			);
+			path = "Log user bypass check";
+			sourceTree = "<group>";
+		};
+		5F5F49D227D7E6F900630E36 /* Bypass Business Requirements */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49CC27D7E3B200630E36 /* Log user bypass check */,
+				5F5F49C927D7DE7500630E36 /* can bypass further checks */,
+			);
+			path = "Bypass Business Requirements";
+			sourceTree = "<group>";
+		};
+		5F5F49D327D7E7E600630E36 /* Thirdparty Requirements */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49D427D7E80400630E36 /* Check Completion Status */,
+			);
+			path = "Thirdparty Requirements";
+			sourceTree = "<group>";
+		};
+		5F5F49D427D7E80400630E36 /* Check Completion Status */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49D527D7E81E00630E36 /* ThirdPartyCompletionStatusProtocol.swift */,
+			);
+			path = "Check Completion Status";
+			sourceTree = "<group>";
+		};
+		5F5F49D727D7E89300630E36 /* Third Party Requirements */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49D827D7E89F00630E36 /* Check Completion Status */,
+			);
+			path = "Third Party Requirements";
+			sourceTree = "<group>";
+		};
+		5F5F49D827D7E89F00630E36 /* Check Completion Status */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49D927D7E8AD00630E36 /* ThirdPartyCompletionStatusService.swift */,
+			);
+			path = "Check Completion Status";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,22 +331,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F5F49CE27D7E3CD00630E36 /* LogUserBypassCheckProtocol.swift in Sources */,
 				5F5F49A727D69AA700630E36 /* RequestTaskProtocol.swift in Sources */,
+				5F5F49DE27D7EBA500630E36 /* SetUserAccessLevelToTenService.swift in Sources */,
 				5F5F49C327D7D28A00630E36 /* UserAccessLevelService.swift in Sources */,
+				5F5F49CB27D7DE9F00630E36 /* CanBypassForItemService.swift in Sources */,
 				5F5F49BF27D7D1DB00630E36 /* UserAccessLevelProtocol.swift in Sources */,
 				5F5F499327D5829700630E36 /* ViewController.swift in Sources */,
 				5F5F49AD27D6DEB100630E36 /* CompleteUserProfileViewController.swift in Sources */,
 				5F5F49BA27D7D0A100630E36 /* UserProfileProtocol.swift in Sources */,
 				5F5F49A927D69B6400630E36 /* LoadUserProfileService.swift in Sources */,
 				5F5F49B427D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift in Sources */,
+				5F5F49D127D7E44400630E36 /* LogUserBypassCheckService.swift in Sources */,
 				5F5F498F27D5829700630E36 /* AppDelegate.swift in Sources */,
 				5F5F49AB27D6B51400630E36 /* MainQueueDispatcherDecorator.swift in Sources */,
 				5F5F49BD27D7D10E00630E36 /* AccessLevel.swift in Sources */,
 				5F5F499127D5829700630E36 /* SceneDelegate.swift in Sources */,
 				5F5F49B827D7CFE400630E36 /* UserProfile.swift in Sources */,
+				5F5F49C527D7DB9200630E36 /* WaitingForApprovalViewController.swift in Sources */,
 				5F5F49B227D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift in Sources */,
 				5F5F49B027D7C39100630E36 /* RootCoordinator.swift in Sources */,
+				5F5F49DA27D7E8AD00630E36 /* ThirdPartyCompletionStatusService.swift in Sources */,
 				5F5F49A427D69A8600630E36 /* LoadingViewController.swift in Sources */,
+				5F5F49D627D7E81E00630E36 /* ThirdPartyCompletionStatusProtocol.swift in Sources */,
+				5F5F49C827D7DDEF00630E36 /* CanBypassForItemProtocol.swift in Sources */,
+				5F5F49DC27D7EB4A00630E36 /* SetUserAccessLevelToTenProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
