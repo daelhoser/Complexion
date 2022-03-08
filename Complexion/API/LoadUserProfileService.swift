@@ -7,24 +7,6 @@
 
 import Foundation
 
-struct UserProfile {
-    let firstName: String
-    let lastName: String
-    var contactId: String?
-    let locationId: Int
-    
-    func hasCompletedUserProfile() -> Bool {
-        guard let contactId = contactId else {
-            return false
-        }
-        
-        return contactId != "0"
-    }
-    func isAllowedToViewLockedContent() -> Bool {
-        return locationId != 123
-    }
-}
-
 protocol UserProfileProtocol {
     typealias Result = Swift.Result<UserProfile, Error>
     func get(completion: @escaping (Result) -> Void) -> RequestTaskProtocol

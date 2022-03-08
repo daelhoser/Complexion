@@ -21,6 +21,7 @@
 		5F5F49B027D7C39100630E36 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49AF27D7C39100630E36 /* RootCoordinator.swift */; };
 		5F5F49B227D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B127D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift */; };
 		5F5F49B427D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B327D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift */; };
+		5F5F49B827D7CFE400630E36 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B727D7CFE400630E36 /* UserProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		5F5F49AF27D7C39100630E36 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		5F5F49B127D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailAndPhoneFlowCoordinator.swift; sourceTree = "<group>"; };
 		5F5F49B327D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailAndPhoneViewController.swift; sourceTree = "<group>"; };
+		5F5F49B727D7CFE400630E36 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		5F5F498D27D5829700630E36 /* Complexion */ = {
 			isa = PBXGroup;
 			children = (
+				5F5F49B527D7CFC000630E36 /* Domain */,
 				5F5F49AE27D7C37E00630E36 /* Coordinators */,
 				5F5F49A527D69A9800630E36 /* API */,
 				5F5F498E27D5829700630E36 /* AppDelegate.swift */,
@@ -105,6 +108,22 @@
 				5F5F49B127D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		5F5F49B527D7CFC000630E36 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49B627D7CFD900630E36 /* User Profile */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		5F5F49B627D7CFD900630E36 /* User Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5F5F49B727D7CFE400630E36 /* UserProfile.swift */,
+			);
+			path = "User Profile";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +204,7 @@
 				5F5F498F27D5829700630E36 /* AppDelegate.swift in Sources */,
 				5F5F49AB27D6B51400630E36 /* MainQueueDispatcherDecorator.swift in Sources */,
 				5F5F499127D5829700630E36 /* SceneDelegate.swift in Sources */,
+				5F5F49B827D7CFE400630E36 /* UserProfile.swift in Sources */,
 				5F5F49B227D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift in Sources */,
 				5F5F49B027D7C39100630E36 /* RootCoordinator.swift in Sources */,
 				5F5F49A427D69A8600630E36 /* LoadingViewController.swift in Sources */,
