@@ -22,6 +22,7 @@
 		5F5F49B227D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B127D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift */; };
 		5F5F49B427D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B327D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift */; };
 		5F5F49B827D7CFE400630E36 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B727D7CFE400630E36 /* UserProfile.swift */; };
+		5F5F49BA27D7D0A100630E36 /* UserProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49B927D7D0A100630E36 /* UserProfileProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5F5F49B127D7C59D00630E36 /* VerifyEmailAndPhoneFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailAndPhoneFlowCoordinator.swift; sourceTree = "<group>"; };
 		5F5F49B327D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailAndPhoneViewController.swift; sourceTree = "<group>"; };
 		5F5F49B727D7CFE400630E36 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		5F5F49B927D7D0A100630E36 /* UserProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				5F5F49B727D7CFE400630E36 /* UserProfile.swift */,
+				5F5F49B927D7D0A100630E36 /* UserProfileProtocol.swift */,
 			);
 			path = "User Profile";
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				5F5F49A727D69AA700630E36 /* RequestTaskProtocol.swift in Sources */,
 				5F5F499327D5829700630E36 /* ViewController.swift in Sources */,
 				5F5F49AD27D6DEB100630E36 /* CompleteUserProfileViewController.swift in Sources */,
+				5F5F49BA27D7D0A100630E36 /* UserProfileProtocol.swift in Sources */,
 				5F5F49A927D69B6400630E36 /* LoadUserProfileService.swift in Sources */,
 				5F5F49B427D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift in Sources */,
 				5F5F498F27D5829700630E36 /* AppDelegate.swift in Sources */,

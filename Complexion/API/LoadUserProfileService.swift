@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol UserProfileProtocol {
-    typealias Result = Swift.Result<UserProfile, Error>
-    func get(completion: @escaping (Result) -> Void) -> RequestTaskProtocol
-}
-
 struct RequestTask: RequestTaskProtocol {
     func cancel() {
     }
