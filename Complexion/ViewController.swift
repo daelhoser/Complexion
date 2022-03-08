@@ -18,7 +18,9 @@ class ViewController: UIViewController {
 
     @IBAction private func unlockButtonTapped() {
         let navController = UINavigationController()
-        coordinator = RootCoordinator(navigationController: navController)
+        let listingAccessLevel = AccessLevel.twenty
+        
+        coordinator = RootCoordinator(navigationController: navController, listingAccessLevel: listingAccessLevel)
         
         coordinator?.start()
         navigationController?.present(navController, animated: true, completion: nil)

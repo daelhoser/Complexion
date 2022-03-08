@@ -12,6 +12,7 @@ struct UserProfile {
     let lastName: String
     var contactId: String?
     let locationId: Int
+    var accessLevel: AccessLevel = .none
     
     func hasCompletedUserProfile() -> Bool {
         guard let contactId = contactId else {
