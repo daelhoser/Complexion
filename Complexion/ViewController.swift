@@ -31,8 +31,12 @@ final class RootCoordinator: Coordinator {
         loadViewController.load {
             service.get { [weak self] result in
                 switch result {
-                case let .success(_):
-                    self?.dismiss()
+                case let .success(user):
+                    if !user.isAllowedToViewLockedContent() {
+                        self?.alertUserNotAllowedToViewContent()
+                    } else if !user.hasCompletedUserProfile() {
+                        
+                    }
                 case .failure:
                     self?.dismiss()
                 }
@@ -46,6 +50,22 @@ final class RootCoordinator: Coordinator {
         DispatchQueue.main.async { [weak self] in
             self?.navigationController.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    private func alertUserNotAllowedToViewContent() {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.alertUserNotAllowedToViewContent()
+            }
+        }
+        
+        let alert = UIAlertController(title: "Not Allowed", message: "You are not allowed to view content", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.navigationController.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(action)
+        navigationController.present(alert, animated: true, completion: nil)
     }
 }
 
