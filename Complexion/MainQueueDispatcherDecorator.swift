@@ -25,8 +25,19 @@ final class MainQueueDispatcherDecorator<T> {
 
 extension MainQueueDispatcherDecorator: UserProfileProtocol where T == UserProfileProtocol {
     func get(completion: @escaping (UserProfileProtocol.Result) -> Void) -> RequestTaskProtocol {
-        self.decoratee.get { [weak self] result in
-            self?.dispatch(completion: { completion(result) })
+        decoratee.get { [weak self] result in
+            self?.dispatch {
+                completion(result)
+                
+            }
+        }
+    }
+}
+
+extension MainQueueDispatcherDecorator: LogUserBypassCheckProtocol where T == LogUserBypassCheckProtocol {
+    func load(contactId: String, completion: @escaping (LogUserBypassCheckProtocol.Result) -> Void) -> RequestTaskProtocol {
+        decoratee.load(contactId: contactId) { [weak self] result in
+            self?.dispatch { completion(result) }
         }
     }
 }

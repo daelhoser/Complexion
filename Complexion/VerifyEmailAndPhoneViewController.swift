@@ -24,7 +24,6 @@ final class VerifyEmailAndPhoneViewController: UIViewController {
     
     @IBAction private func completeWithSuccessButtonTapped() {
         completionDelegate?.completedSuccessfully()
-        
     }
     
     @IBAction private func completeWithFailureButtonTapped() {

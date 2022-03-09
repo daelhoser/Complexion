@@ -35,6 +35,8 @@
 		5F5F49DA27D7E8AD00630E36 /* ThirdPartyCompletionStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49D927D7E8AD00630E36 /* ThirdPartyCompletionStatusService.swift */; };
 		5F5F49DC27D7EB4A00630E36 /* SetUserAccessLevelToTenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49DB27D7EB4A00630E36 /* SetUserAccessLevelToTenProtocol.swift */; };
 		5F5F49DE27D7EBA500630E36 /* SetUserAccessLevelToTenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49DD27D7EBA500630E36 /* SetUserAccessLevelToTenService.swift */; };
+		5F5F49E027D8007F00630E36 /* ThirdPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49DF27D8007F00630E36 /* ThirdPartyViewController.swift */; };
+		5F5F49E227D82B0E00630E36 /* DoYouAgreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F49E127D82B0E00630E36 /* DoYouAgreeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		5F5F49D927D7E8AD00630E36 /* ThirdPartyCompletionStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyCompletionStatusService.swift; sourceTree = "<group>"; };
 		5F5F49DB27D7EB4A00630E36 /* SetUserAccessLevelToTenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserAccessLevelToTenProtocol.swift; sourceTree = "<group>"; };
 		5F5F49DD27D7EBA500630E36 /* SetUserAccessLevelToTenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserAccessLevelToTenService.swift; sourceTree = "<group>"; };
+		5F5F49DF27D8007F00630E36 /* ThirdPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyViewController.swift; sourceTree = "<group>"; };
+		5F5F49E127D82B0E00630E36 /* DoYouAgreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoYouAgreeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				5F5F49AC27D6DEB100630E36 /* CompleteUserProfileViewController.swift */,
 				5F5F49B327D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift */,
 				5F5F49C427D7DB9200630E36 /* WaitingForApprovalViewController.swift */,
+				5F5F49DF27D8007F00630E36 /* ThirdPartyViewController.swift */,
+				5F5F49E127D82B0E00630E36 /* DoYouAgreeViewController.swift */,
 				5F5F499427D5829700630E36 /* Main.storyboard */,
 				5F5F499727D5829900630E36 /* Assets.xcassets */,
 				5F5F499927D5829900630E36 /* LaunchScreen.storyboard */,
@@ -331,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F5F49E227D82B0E00630E36 /* DoYouAgreeViewController.swift in Sources */,
 				5F5F49CE27D7E3CD00630E36 /* LogUserBypassCheckProtocol.swift in Sources */,
 				5F5F49A727D69AA700630E36 /* RequestTaskProtocol.swift in Sources */,
 				5F5F49DE27D7EBA500630E36 /* SetUserAccessLevelToTenService.swift in Sources */,
@@ -344,6 +351,7 @@
 				5F5F49B427D7C62900630E36 /* VerifyEmailAndPhoneViewController.swift in Sources */,
 				5F5F49D127D7E44400630E36 /* LogUserBypassCheckService.swift in Sources */,
 				5F5F498F27D5829700630E36 /* AppDelegate.swift in Sources */,
+				5F5F49E027D8007F00630E36 /* ThirdPartyViewController.swift in Sources */,
 				5F5F49AB27D6B51400630E36 /* MainQueueDispatcherDecorator.swift in Sources */,
 				5F5F49BD27D7D10E00630E36 /* AccessLevel.swift in Sources */,
 				5F5F499127D5829700630E36 /* SceneDelegate.swift in Sources */,

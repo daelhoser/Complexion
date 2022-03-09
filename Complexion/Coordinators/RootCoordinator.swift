@@ -21,19 +21,28 @@ final class RootCoordinator: Coordinator {
     private let itemAccessLevel: AccessLevel
     var navigationController: UINavigationController
     
-    var onCompletion: (() -> Void)?
+    var userProfileService: UserProfileProtocol?
+    var thirdPartyService: ThirdPartyCompletionStatusProtocol?
+    var logUserBypassService: LogUserBypassCheckProtocol?
+    var canBypassItemService: CanBypassForItemService?
+    var userAccessLevelService: UserAccessLevelProtocol?
+    var setUserAccessLevelToTenService: SetUserAccessLevelToTenProtocol?
+    
+    var onCompletion: ((Bool) -> Void)?
 
     init(navigationController: UINavigationController, listingAccessLevel: AccessLevel) {
         self.navigationController = navigationController
         self.itemAccessLevel = listingAccessLevel
     }
-    
+        
     func start() {
         let loadViewController = createLoadingViewController()
         let service = LoadUserProfileService()
+        let main: UserProfileProtocol = MainQueueDispatcherDecorator(decoratee: service)
+        self.userProfileService = main
         
         loadViewController.load {
-            service.get { [weak self] result in
+            main.get { [weak self] result in
                 // Warning: Depending on result we need to update UI on main thread or Call another service on any thread
                 
                 switch result {
@@ -46,7 +55,7 @@ final class RootCoordinator: Coordinator {
                         self?.requestUserToCompleteProfile(with: user)
                     }
                 case .failure:
-                    self?.dismiss()
+                    self?.dismissWithFailure()
                 }
             }
         }
@@ -66,16 +75,16 @@ final class RootCoordinator: Coordinator {
         viewController.present(alertController, animated: true, completion: nil)
     }
     
-    private func closeAndComplete() {
+    private func dismissWithSuccess() {
         navigationController.dismiss(animated: true) { [weak self] in
-            self?.onCompletion?()
+            self?.onCompletion?(true)
         }
     }
     
-    private func dismiss() {
+    private func dismissWithFailure() {
         DispatchQueue.main.async { [weak self] in
             self?.navigationController.dismiss(animated: true, completion: {
-                self?.onCompletion?()
+                self?.onCompletion?(false)
             })
         }
     }
@@ -90,7 +99,7 @@ final class RootCoordinator: Coordinator {
         
         let alert = UIAlertController(title: "Not Allowed", message: "You are not allowed to view content", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-            self?.navigationController.dismiss(animated: true, completion: nil)
+            self?.dismissWithFailure()
         }
         
         alert.addAction(action)
@@ -107,12 +116,6 @@ final class RootCoordinator: Coordinator {
 /// Complete your profile flow
 extension RootCoordinator : CompleteProfileFlowDelegate {
     private func requestUserToCompleteProfile(with user: UserProfile) {
-        if !Thread.isMainThread {
-            DispatchQueue.main.async {
-                self.requestUserToCompleteProfile(with: user)
-            }
-            return
-        }
         let vc = CompleteUserProfileComposer.compose(with: user)
         vc.flowDelegate = self
         
@@ -122,16 +125,16 @@ extension RootCoordinator : CompleteProfileFlowDelegate {
     func completeProfileSucceeded(with contactId: Int) {
         user?.contactId = "\(contactId)"
         
-        dismiss()
+        verifyEmailAndPhone()
     }
     
     func completeYourProfileFailed() {
-        dismiss()
+        dismissWithFailure()
     }
 }
 
 extension RootCoordinator : EmailAndPhoneVerificationStatusDelegate {
-    private func confirmEmailAndPhone() {
+    private func verifyEmailAndPhone() {
         let childCoordinator = VerifyEmailAndPhoneFlowCoordinator(navigationController: navigationController)
         childCoordinator.completionDelegate = self
         
@@ -171,6 +174,7 @@ extension RootCoordinator {
         navigationController.setViewControllers([loadingViewController], animated: true)
 
         let service = UserAccessLevelService()
+        userAccessLevelService = service
         
         loadingViewController.load {
             service.load(with: "any item id") { [weak self] result in
@@ -183,7 +187,7 @@ extension RootCoordinator {
                     if userAccessLevel == .twenty && self.itemAccessLevel == .thirty {
                         self.renderWaitingForApproval()
                     } else if userAccessLevel >= self.itemAccessLevel {
-                        self.closeAndComplete()
+                        self.dismissWithSuccess()
                     } else {
                         self.getCompanyBypassStatus(with: loadingViewController)
                     }
@@ -196,6 +200,7 @@ extension RootCoordinator {
     
     private func getCompanyBypassStatus(with vc: LoadingViewController) {
         let getTransService =  CanBypassForItemService()
+        canBypassItemService = getTransService
 
         vc.load {
             return getTransService.load(itemId: "same item id") { [weak self] result in
@@ -221,7 +226,7 @@ extension RootCoordinator {
                 self.setUserAccessLevelToTen(for: vc)
             } else {
                 if self.itemAccessLevel <= .ten {
-                    self.closeAndComplete()
+                    self.dismissWithSuccess()
                 } else {
                     self.requestUserAcceptance()
                 }
@@ -233,9 +238,11 @@ extension RootCoordinator {
         }
         
         let service = LogUserBypassCheckService()
+        let main: LogUserBypassCheckProtocol = MainQueueDispatcherDecorator(decoratee: service)
+        logUserBypassService = main
         
         vc.load {
-            return service.load(contactId: contactId) { [weak self] result in
+            return main.load(contactId: contactId) { [weak self] result in
                 switch result {
                 case .success:
                     determineNextSteps()
@@ -248,7 +255,8 @@ extension RootCoordinator {
     
     private func checkIfUserHasPassedThirdPartyRequirements(for vc: LoadingViewController) {
         let service = ThirdPartyCompletionStatusService()
-
+        thirdPartyService = service
+        
         vc.load {
             return service.load { [weak self] result in
                 guard let self = self else { return }
@@ -273,11 +281,38 @@ extension RootCoordinator {
     }
     
     private func renderThirdPartyAcceptanceCheck() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "ThirdPartyViewController") as! ThirdPartyViewController
         
+        NotificationCenter.default.addObserver(self, selector: #selector(thirdPartySucceeded), name: Notification.Name(ThirdPartyViewController.thirdPartySucceededNotificationName), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(thirdPartyFailed), name: Notification.Name(ThirdPartyViewController.thirdPartyFailedNotificationName), object: nil)
+
+        navigationController.setViewControllers([vc], animated: true)
+    }
+    
+    @objc private func thirdPartySucceeded() {
+        removeSelfAsThirdPartyObserver()
+        
+        if user?.accessLevel == AccessLevel.none {
+            self.setUserAccessLevelToTen(for: createLoadingViewController())
+        } else {
+            self.requestUserAcceptance()
+        }
+    }
+    
+    @objc private func thirdPartyFailed() {
+        removeSelfAsThirdPartyObserver()
+        dismissWithFailure()
+    }
+    
+    private func removeSelfAsThirdPartyObserver() {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(ThirdPartyViewController.thirdPartySucceededNotificationName), object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(ThirdPartyViewController.thirdPartyFailedNotificationName), object: nil)
     }
         
     private func setUserAccessLevelToTen(for vc: LoadingViewController) {
         let service = SetUserAccessLevelToTenService()
+        setUserAccessLevelToTenService = service
 
         vc.load {
             return service.set(for: "same item id") { [weak self] result in
@@ -286,7 +321,7 @@ extension RootCoordinator {
                 switch result {
                 case .success:
                     if self.itemAccessLevel <= .ten {
-                        self.closeAndComplete()
+                        self.dismissWithSuccess()
                     } else {
                         self.requestUserAcceptance()
                     }
@@ -296,9 +331,34 @@ extension RootCoordinator {
             }
         }
     }
-    
+}
+
+extension RootCoordinator: DoYouAgreeFlowDelegate {
     private func requestUserAcceptance() {
+        var service: DoYouAgreeService
         
+        if itemAccessLevel == .thirty {
+            service = DoYouAgreeServiceOne()
+        } else {
+            service = DoYouAgreeServiceTwo()
+        }
+        
+        let vc = DoYouAgreeComposer.composeWith(a: service)
+        vc.delegate = self
+        
+        navigationController.setViewControllers([vc], animated: true)
+    }
+    
+    func agreed() {
+        if itemAccessLevel == .thirty {
+            renderWaitingForApproval()
+        } else {
+            dismissWithFailure()
+        }
+    }
+    
+    func disagreed() {
+        dismissWithFailure()
     }
 }
 
@@ -312,6 +372,6 @@ extension RootCoordinator: WaitingForApprovalFlowDelegate {
     }
     
     func okTapped() {
-        dismiss()
+        dismissWithFailure()
     }
 }

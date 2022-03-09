@@ -113,16 +113,100 @@
             </objects>
             <point key="canvasLocation" x="-29" y="828"/>
         </scene>
-        <!--Complete User Profile-->
+        <!--Requesting Data 4 3rd party-->
+        <scene sceneID="8F1-ef-Zla">
+            <objects>
+                <viewController storyboardIdentifier="ThirdPartyViewController" title="Requesting Data 4 3rd party" id="BEK-ak-VTE" customClass="ThirdPartyViewController" customModule="Complexion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xQZ-fU-OWg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We do not collect any of this data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1Z-kK-016">
+                                <rect key="frame" x="80" y="120" width="254" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYN-Ql-gop">
+                                <rect key="frame" x="127" y="235" width="161" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Complete with Success"/>
+                                <connections>
+                                    <action selector="completeWithSuccessButtonTapped" destination="BEK-ak-VTE" eventType="touchUpInside" id="bGJ-h1-AJF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98g-8Z-IfU">
+                                <rect key="frame" x="133" y="312" width="148" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Complete with Failure"/>
+                                <connections>
+                                    <action selector="completeWithFailureButtonTapped" destination="BEK-ak-VTE" eventType="touchUpInside" id="oaB-wS-Rvo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DCk-Us-sxe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3wl-j9-xWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-29" y="1543"/>
+        </scene>
+        <!--Agreement for Item-->
+        <scene sceneID="epq-7I-KEE">
+            <objects>
+                <viewController storyboardIdentifier="DoYouAgreeViewController" title="Agreement for Item" id="1Co-cX-T9s" customClass="DoYouAgreeViewController" customModule="Complexion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5HO-PL-IEq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Do you Agree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGd-vp-Zus">
+                                <rect key="frame" x="156" y="118" width="103" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1X8-Kh-1Kl">
+                                <rect key="frame" x="183" y="191" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9v-Ah-hjo">
+                                <rect key="frame" x="192" y="293" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Yes"/>
+                                <connections>
+                                    <action selector="yesButtonTapped" destination="1Co-cX-T9s" eventType="touchUpInside" id="oNH-5r-z75"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHh-Ep-Bcy">
+                                <rect key="frame" x="192" y="354" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="No"/>
+                                <connections>
+                                    <action selector="noButtonTapped" destination="1Co-cX-T9s" eventType="touchUpInside" id="OSQ-vC-QsW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HDp-Ax-9Ws"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ed3-fN-Mn2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="1551"/>
+        </scene>
+        <!--Verify Phone and Email-->
         <scene sceneID="NQm-YV-T0j">
             <objects>
-                <viewController storyboardIdentifier="VerifyEmailAndPhoneViewControllerViewController" title="Complete User Profile" id="7Zk-TO-Q7K" customClass="VerifyEmailAndPhoneViewController" customModule="Complexion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VerifyEmailAndPhoneViewController" title="Verify Phone and Email" id="7Zk-TO-Q7K" customClass="VerifyEmailAndPhoneViewController" customModule="Complexion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LQw-HT-7TP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Complete User Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3j-ye-PQ2">
-                                <rect key="frame" x="124" y="159" width="167" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Verify User Email &amp; Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3j-ye-PQ2">
+                                <rect key="frame" x="124" y="159" width="198" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -133,7 +217,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Complete with Success"/>
                                 <connections>
-                                    <action selector="completeWithSuccessButtonTapped" destination="7Zk-TO-Q7K" eventType="touchUpInside" id="4FY-av-JmP"/>
+                                    <action selector="completeWithSuccessButtonTapped" destination="7Zk-TO-Q7K" eventType="touchUpInside" id="F6E-3r-CkV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdZ-0r-SL2">
@@ -141,7 +225,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Complete With Failure"/>
                                 <connections>
-                                    <action selector="completeWithFailureButtonTapped" destination="7Zk-TO-Q7K" eventType="touchUpInside" id="CKe-B3-FnQ"/>
+                                    <action selector="completeWithFailureButtonTapped" destination="7Zk-TO-Q7K" eventType="touchUpInside" id="CT1-bZ-RG2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks4-lF-vwL">
@@ -149,7 +233,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="User Cancelled"/>
                                 <connections>
-                                    <action selector="userCancelled" destination="7Zk-TO-Q7K" eventType="touchUpInside" id="jax-z7-6gi"/>
+                                    <action selector="userCancelled" destination="7Zk-TO-Q7K" eventType="touchUpInside" id="xQB-t3-0Cn"/>
                                 </connections>
                             </button>
                         </subviews>
