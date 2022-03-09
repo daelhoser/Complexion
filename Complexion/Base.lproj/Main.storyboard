@@ -16,19 +16,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0Q-BE-yz9">
-                                <rect key="frame" x="128" y="288" width="155" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tap to Request Unlock"/>
-                                <connections>
-                                    <action selector="unlockButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cty-Zk-hZL"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B3v-MS-nY8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0Q-BE-yz9">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                        <state key="normal" title="Tap to Request Unlock"/>
+                                        <connections>
+                                            <action selector="unlockButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cty-Zk-hZL"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content Locked" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rj7-ZK-k73">
+                                        <rect key="frame" x="0.0" y="40" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="MSZ-gK-kJh">
+                                        <rect key="frame" x="0.0" y="70.5" width="414" height="703.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="B3v-MS-nY8" secondAttribute="trailing" id="XcV-nR-ZPc"/>
+                            <constraint firstItem="B3v-MS-nY8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jVd-bv-yu3"/>
+                            <constraint firstItem="B3v-MS-nY8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="paP-L7-S64"/>
+                            <constraint firstItem="B3v-MS-nY8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zkk-Mt-WCx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PRI-NW-bNv"/>
+                    <connections>
+                        <outlet property="statusLabel" destination="rj7-ZK-k73" id="jB7-05-16t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

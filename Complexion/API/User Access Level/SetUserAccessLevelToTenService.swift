@@ -10,7 +10,7 @@ import Foundation
 final class SetUserAccessLevelToTenService: SetUserAccessLevelToTenProtocol {
     func set(for itemId: String, completion: @escaping (SetUserAccessLevelToTenProtocol.Result) -> Void) -> RequestTaskProtocol {
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(500)) {
             completion(.success(()))
         }
         

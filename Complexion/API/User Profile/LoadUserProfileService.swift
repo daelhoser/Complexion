@@ -11,7 +11,7 @@ final class LoadUserProfileService : UserProfileProtocol {
     
     func get(completion: @escaping (UserProfileProtocol.Result) -> Void) -> RequestTaskProtocol {
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(500)) {
             let restrictedFromContinuing = false
             let hasCompletedUserProfile = false
 

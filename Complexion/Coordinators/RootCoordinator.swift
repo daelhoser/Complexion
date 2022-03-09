@@ -77,14 +77,18 @@ final class RootCoordinator: Coordinator {
     
     private func dismissWithSuccess() {
         navigationController.dismiss(animated: true) { [weak self] in
-            self?.onCompletion?(true)
+            DispatchQueue.main.async {
+                self?.onCompletion?(true)
+            }
         }
     }
     
     private func dismissWithFailure() {
         DispatchQueue.main.async { [weak self] in
             self?.navigationController.dismiss(animated: true, completion: {
-                self?.onCompletion?(false)
+                DispatchQueue.main.async {
+                    self?.onCompletion?(false)
+                }
             })
         }
     }
@@ -353,7 +357,7 @@ extension RootCoordinator: DoYouAgreeFlowDelegate {
         if itemAccessLevel == .thirty {
             renderWaitingForApproval()
         } else {
-            dismissWithFailure()
+            dismissWithSuccess()
         }
     }
     

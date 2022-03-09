@@ -9,7 +9,7 @@ import Foundation
 
 final class CanBypassForItemService: CanBypassForItemProtocol {
     func load(itemId: String, completion: @escaping (CanBypassForItemProtocol.Result) -> Void) -> RequestTaskProtocol {
-        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(500)) {
             let canBypass = true
             
             completion(.success(canBypass))

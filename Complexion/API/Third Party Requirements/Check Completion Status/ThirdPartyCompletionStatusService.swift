@@ -11,7 +11,7 @@ final class ThirdPartyCompletionStatusService: ThirdPartyCompletionStatusProtoco
     
     func load(completion: @escaping (ThirdPartyCompletionStatusProtocol.Result) -> Void) -> RequestTaskProtocol {
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(500)) {
             let isVerified = true
             
             completion(.success(ThirdPartyResponse(isVerified: isVerified)))
